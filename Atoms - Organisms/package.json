@@ -1,0 +1,29 @@
+{
+  "name": "aetheris-design-extraction",
+  "version": "1.0.0",
+  "description": "Comprehensive design system extraction from aetheris.dev",
+  "main": "README.md",
+  "scripts": {
+    "extract": "skillui extract https://aetheris.ai",
+    "extract:ultra": "skillui extract https://aetheris.ai --ultra",
+    "build": "node scripts/generate.js",
+    "serve": "node scripts/serve.js",
+    "dev": "node scripts/generate.js && node scripts/serve.js"
+  },
+  "keywords": [
+    "design-system",
+    "aetheris-ai",
+    "design-extraction",
+    "ui-components",
+    "design-tokens"
+  ],
+  "author": "Design Extraction Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.games-reborn.com:222/Aetheris/design.git"
+  },
+  "devDependencies": {
+    "skillui": "^1.3.4"
+  }
+}

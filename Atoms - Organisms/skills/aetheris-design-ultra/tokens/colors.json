@@ -1,0 +1,100 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "core": {
+    "surface": {
+      "value": "#1a1a1a",
+      "role": "surface",
+      "name": "card"
+    },
+    "text-primary": {
+      "value": "#080808",
+      "role": "text-primary",
+      "name": "color-black"
+    },
+    "text-muted": {
+      "value": "#666664",
+      "role": "text-muted"
+    },
+    "background": {
+      "value": "#ffffff",
+      "role": "background",
+      "name": "tw-ring-offset-color"
+    },
+    "accent": {
+      "value": "#ff691f",
+      "role": "accent",
+      "name": "primary"
+    },
+    "border": {
+      "value": "#4a4a49",
+      "role": "border"
+    }
+  },
+  "status": {
+    "danger": {
+      "value": "#ff6901",
+      "role": "danger",
+      "name": "color-orange-500"
+    },
+    "success": {
+      "value": "#00bb7f",
+      "role": "success",
+      "name": "color-emerald-500"
+    },
+    "warning": {
+      "value": "#f99c00",
+      "role": "warning",
+      "name": "color-amber-500"
+    }
+  },
+  "extended": {
+    "color-cfcfcb": {
+      "value": "#cfcfcb",
+      "role": "unknown"
+    },
+    "color-c4c4c0": {
+      "value": "#c4c4c0",
+      "role": "unknown"
+    },
+    "color-585857": {
+      "value": "#585857",
+      "role": "unknown"
+    },
+    "color-1f2326": {
+      "value": "#1f2326",
+      "role": "unknown"
+    },
+    "color-dededb": {
+      "value": "#dededb",
+      "role": "unknown"
+    },
+    "color-red-400": {
+      "value": "#ff6568",
+      "role": "unknown",
+      "name": "color-red-400"
+    },
+    "color-sky-500": {
+      "value": "#00a5ef",
+      "role": "info",
+      "name": "color-sky-500"
+    },
+    "primary-foreground": {
+      "value": "#190f0b",
+      "role": "unknown",
+      "name": "primary-foreground"
+    },
+    "color-orange-400": {
+      "value": "#ff8b1a",
+      "role": "unknown",
+      "name": "color-orange-400"
+    },
+    "color-d73a49": {
+      "value": "#d73a49",
+      "role": "unknown"
+    }
+  },
+  "meta": {
+    "theme": "light",
+    "extracted": "2026-09-25"
+  }
+}

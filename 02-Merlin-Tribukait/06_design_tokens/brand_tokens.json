@@ -1,0 +1,78 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Merlin Tribukait",
+  "version": "2.0.0",
+  "color": {
+    "primary": {
+      "value": "#00f0ff",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#ff2d55",
+      "type": "color"
+    },
+    "metallic": {
+      "value": "#a0a8b8",
+      "type": "color"
+    },
+    "background": {
+      "value": "#08080c",
+      "type": "color"
+    },
+    "surface": {
+      "value": "#12121c",
+      "type": "color"
+    },
+    "border": {
+      "value": "rgba(255, 255, 255, 0.08)",
+      "type": "color"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "sans": {
+        "value": "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+      },
+      "mono": {
+        "value": "JetBrains Mono, Menlo, monospace"
+      }
+    },
+    "scale": {
+      "xs": {
+        "value": "0.75rem"
+      },
+      "sm": {
+        "value": "0.875rem"
+      },
+      "base": {
+        "value": "1rem"
+      },
+      "lg": {
+        "value": "1.25rem"
+      },
+      "xl": {
+        "value": "1.5rem"
+      },
+      "2xl": {
+        "value": "2rem"
+      },
+      "3xl": {
+        "value": "2.5rem"
+      },
+      "4xl": {
+        "value": "3.5rem"
+      }
+    }
+  },
+  "shadows": {
+    "glow": {
+      "value": "0 0 24px #00f0ff40"
+    },
+    "glowStrong": {
+      "value": "0 0 36px #00f0ff80"
+    },
+    "card": {
+      "value": "0 16px 40px rgba(0, 0, 0, 0.6)"
+    }
+  }
+}

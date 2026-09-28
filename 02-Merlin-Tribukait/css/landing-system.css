@@ -1,0 +1,49 @@
+
+/* Merlin Tribukait Landing Page System */
+:root {
+    --mt-bg-dark: #0a0b10;
+    --mt-bg-surface: #14151f;
+    --mt-primary: #6c5ce7;
+    --mt-secondary: #00d2d3;
+    --mt-text-main: #f5f6fa;
+    --mt-text-muted: #a4b0be;
+    --mt-border: rgba(108, 92, 231, 0.2);
+    --mt-font-head: 'Inter', sans-serif;
+    --mt-font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--mt-font-body); background: var(--mt-bg-dark); color: var(--mt-text-main); line-height: 1.6; }
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section-darker { background: rgba(0,0,0,0.3); }
+
+/* Typography */
+h1, h2, h3 { font-family: var(--mt-font-head); font-weight: 700; margin-bottom: 24px; }
+h1 { font-size: 4rem; line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-size: 2.5rem; }
+.subtitle { font-size: 1.25rem; color: var(--mt-text-muted); margin-bottom: 40px; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; }
+.btn-primary { background: linear-gradient(135deg, var(--mt-primary), var(--mt-secondary)); color: #fff; box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6); }
+.btn-outline { background: transparent; border: 1px solid var(--mt-primary); color: var(--mt-text-main); }
+.btn-outline:hover { background: rgba(108, 92, 231, 0.1); }
+
+/* Grid & Cards */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+.card { background: var(--mt-bg-surface); border: 1px solid var(--mt-border); border-radius: 16px; padding: 32px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--mt-primary); }
+
+/* Nav */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--mt-border); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--mt-text-main); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--mt-primary); }
+
+/* Hero */
+.hero { text-align: center; padding: 160px 0 120px; }
+.hero h1 { background: linear-gradient(to right, #fff, var(--mt-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }

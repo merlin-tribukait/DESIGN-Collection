@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merlin Tribukait · Molecular Brand Identity & Design System</title>
+  <link rel="icon" type="image/png" href="03_favicons_app_icons/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="06_design_tokens/brand_tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--brand-bg);
+      color: #f0f2f8;
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), #00f0ff0d, transparent 80%);
+      z-index: 0;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    header {
+      text-align: center;
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid var(--brand-border);
+      margin-bottom: 3.5rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      background: #00f0ff15;
+      border: 1px solid var(--brand-primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-glow);
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 30%, var(--brand-metallic));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    .subtitle {
+      color: #a0a4b8;
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 3rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--brand-border);
+      padding-bottom: 0.75rem;
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--brand-primary);
+      background: #00f0ff20;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--brand-card);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--brand-primary);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6), var(--shadow-glow);
+      transform: translateY(-4px);
+    }
+    .swatch {
+      height: 90px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: flex-end;
+      padding: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      color: #050811;
+      box-shadow: var(--shadow-glow);
+    }
+    .btn-primary:hover {
+      box-shadow: var(--shadow-glowStrong);
+      transform: scale(1.03);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border-color: var(--brand-border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--brand-primary);
+    }
+    .preview-img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--brand-border);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .code-box {
+      background: #050508;
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      overflow-x: auto;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+<!-- GLOBAL DESIGN NETWORK TOPBAR -->
+<div id="gr-global-nav-topbar" style="position:sticky; top:0; left:0; width:100%; z-index:999999; background:#040508; border-bottom:1px solid #1e2638; font-family:'Rajdhani',system-ui,-apple-system,sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:#8f96a3; display:flex; align-items:center; justify-content:space-between; padding:0 20px; height:42px; box-shadow:0 4px 20px rgba(0,0,0,0.6); box-sizing:border-box;">
+  <div style="display:flex; align-items:center; gap:16px; overflow-x:auto; white-space:nowrap; padding:4px 0;">
+    <span style="color:#ff263b; font-weight:800; display:inline-flex; align-items:center; gap:6px;">
+      <span style="display:inline-block; width:8px; height:8px; background:#ff263b; border-radius:50%; box-shadow:0 0 8px #ff263b;"></span>
+      DESIGN HUB
+    </span>
+    <span style="color:#2b354c;">|</span>
+    <span style="color:#fff; font-weight:700;">GAMES REBORN NETWORK:</span>
+    <a href="https://games-reborn-network.github.io/design/" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#ff263b'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">3D Guidebook</a>
+    <a href="https://games-reborn-network.github.io/design/launcher.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s; background:rgba(255,42,68,0.15); border:1px solid rgba(255,42,68,0.4);" onmouseover="this.style.color='#ff263b';" onmouseout="this.style.color='#e2e6f0';">🎮 Launcher Dummy</a>
+    <a href="https://games-reborn-network.github.io/design/landing.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#ff263b'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Landing Page</a>
+    <span style="color:#2b354c;">|</span>
+    <span style="color:#fff; font-weight:700;">GAMES REBORN BRANDING:</span>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Brand Hub</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/BRAND_GUIDEBOOK.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Guidebook</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/reborn_prime_landing_page.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Prime Landing</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/showroom.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Showroom</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/launcher.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Launcher</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/variant1_orange_hex.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#f59e0b'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Orange Hex</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/variant2_red_shield.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#ef4444'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Red Shield</a>
+    <a href="https://merlin-tribukait.github.io/games-reborn-branding/variant3_dark_red.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#b91c1c'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Dark Red</a>
+    <span style="color:#2b354c;">|</span>
+    <span style="color:#fff; font-weight:700;">PERSONAL BRAND:</span>
+    <a href="https://merlin-tribukait.github.io/merlin-tribukait-branding/" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#a855f7'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Merlin Hub</a>
+    <a href="https://merlin-tribukait.github.io/merlin-tribukait-branding/BRAND_GUIDEBOOK.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#a855f7'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Guidebook</a>
+    <a href="https://merlin-tribukait.github.io/merlin-tribukait-branding/showroom.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#a855f7'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Showroom</a>
+    <a href="https://merlin-tribukait.github.io/merlin-tribukait-branding/launcher.html" style="color:#e2e6f0; text-decoration:none; padding:4px 8px; border-radius:4px; transition:0.2s;" onmouseover="this.style.color='#a855f7'; this.style.background='#131824';" onmouseout="this.style.color='#e2e6f0'; this.style.background='transparent';">Launcher</a>
+  </div>
+  <div style="flex-shrink:0; margin-left:15px;">
+    <a href="https://github.com/GAMES-Reborn-Network" target="_blank" style="background:#171d2b; color:#fff; padding:4px 10px; border-radius:4px; text-decoration:none; border:1px solid #2b354c; font-size:11px; font-weight:700;">GitHub Org ↗</a>
+  </div>
+</div>
+<!-- /GLOBAL DESIGN NETWORK TOPBAR -->
+  <div class="spotlight"></div>
+  <div class="container">
+    <header>
+      <div class="badge">MOLECULAR DESIGN SYSTEM · V2.0.0</div>
+      <h1>Merlin Tribukait</h1>
+      <p class="subtitle">Full-Stack Systems Architect & Game Core Engineer — Full-Fidelity 3D Metallic Brand Standards & Asset Architecture</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="08_effects_showcase/index.html" class="btn btn-primary">⚡ Launch Live Effects Showcase</a>
+        <a href="05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary">Download 4K Wallpaper</a>
+        <a href="06_design_tokens/brand_tokens.json" target="_blank" class="btn btn-secondary">Inspect Tokens (JSON)</a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: ATOMS -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 01</span> Atomic Tokens</h2>
+    <div class="grid-4">
+      <div class="card">
+        <div class="swatch" style="background: #00f0ff; color: #000;">#00f0ff</div>
+        <h3>Primary Neon</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Bevel glow, active links, laser borders</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #ff2d55; color: #fff;">#ff2d55</div>
+        <h3>Secondary Accent</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Dual-channel energy, flare highlights</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #8f96a3; color: #000;">#8F96A3</div>
+        <h3>Brushed Titanium</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">3D Chrome bevels & logotypes</p>
+      </div>
+      <div class="card">
+        <div class="swatch" style="background: #08080c; color: #fff; border-color: rgba(255,255,255,0.3);">#08080C</div>
+        <h3>Obsidian Dark</h3>
+        <p style="font-size: 0.85rem; color: #8f96a3;">Carbon weave chassis & base background</p>
+      </div>
+    </div>
+
+    <!-- SECTION 2: MOLECULES -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 02</span> Molecular Lockups & Badges</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="02_raster_png/logo_1024x1024.png" alt="3D Crest" class="preview-img">
+        <h3>Master 3D Metallic Shield Crest</h3>
+        <p style="font-size: 0.875rem; color: #a0a4b8; margin-bottom: 1rem;">
+          The primary visual mark featuring 3D sculpted monogram geometry, dual-channel edge lighting, and brushed titanium bevels.
+        </p>
+        <a href="02_raster_png/logo_2048x2048.png" target="_blank" class="btn btn-secondary" style="width: 100%;">Download High-Res Master PNG</a>
+      </div>
+
+      <div class="card">
+        <img src="04_social_media_kit/og_image_1200x630.jpg" alt="Widescreen Banner" class="preview-img">
+        <h3>16:9 Cinematic Widescreen Lockup</h3>
+        <p style="font-size: 0.875rem; color: #a0a4b8; margin-bottom: 1rem;">
+          Calibrated for high-density social headers (Twitter/X, Discord, YouTube) and 4K battlestation wallpapers.
+        </p>
+        <a href="05_wallpapers_4k/wallpaper_4k_3840x2160.jpg" target="_blank" class="btn btn-secondary" style="width: 100%;">Download 4K Desktop Wallpaper</a>
+      </div>
+    </div>
+
+    <!-- SECTION 3: ORGANISMS & TEMPLATES -->
+    <h2 class="section-title"><span class="section-tag">LEVEL 03 & 04</span> Organisms & Asset Packages</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>🎨 Scalable Vector SVGs</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Clean-room SVG vector files with transparent backgrounds for responsive web and lasers.</p>
+        <div class="code-box">/01_vectors_svg/
+├── logo_primary_3d_crest.svg
+├── logo_horizontal_lockup.svg
+├── logo_monochrome_white.svg
+└── logo_monochrome_black.svg</div>
+      </div>
+
+      <div class="card">
+        <h3>📱 App Icons & Favicons</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Multi-size ICO bundle, iOS Apple Touch Icon, Android Chrome PWA manifests.</p>
+        <div class="code-box">/03_favicons_app_icons/
+├── favicon.ico (16-256px)
+├── apple-touch-icon.png
+├── android-chrome-192.png
+└── site.webmanifest</div>
+      </div>
+
+      <div class="card">
+        <h3>🌐 Social Media Graphics</h3>
+        <p style="font-size: 0.85rem; color: #a0a4b8; margin-bottom: 0.85rem;">Pixel-calibrated graphics for OpenGraph, Twitter, Discord, and streaming platforms.</p>
+        <div class="code-box">/04_social_media_kit/
+├── og_image_1200x630.jpg
+├── twitter_header_1500x500.jpg
+├── discord_avatar_512.png
+└── discord_banner_960.jpg</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    }, { passive: true });
+  </script>
+</body>
+</html>
+
+
